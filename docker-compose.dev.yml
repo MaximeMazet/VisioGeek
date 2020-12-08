@@ -1,0 +1,49 @@
+version: '3.3'
+services: 
+  mariadb:
+    build:
+      context: 
+        ./docker/dev/mariadb
+    container_name: 'visiogeek-mariadb'
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+    volumes: 
+      - ./db:/var/lib/mysql
+  phpmyadmin:
+    build:
+      context: 
+        ./docker/dev/phpmyadmin
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    container_name: 'visiogeek-phpmyadmin'
+    links: 
+      - mariadb
+    ports: 
+      - 8080:80
+  nginx:
+    build:
+      context: 
+        ./docker/dev/nginx
+    volumes: 
+      - ./www/visiogeek-api:/var/www/html
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    environment:
+      VG_MARIADB_HOST: mariadb
+      VG_MARIADB_PORT: 3306
+      VG_MARIADB_USER: root
+      VG_MARIADB_PASSWORD: root
+    container_name: 'visiogeek-nginx'
+    links: 
+      - mariadb
+    ports: 
+      - 8888:8080
+  angular:
+    build:
+      context: 
+        ./docker/dev/angular
+    volumes: 
+      - ./www/:/var/www/html
+    container_name: 'visiogeek-angular'
+    ports: 
+      - 80:4201
