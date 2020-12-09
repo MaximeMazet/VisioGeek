@@ -2,42 +2,32 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory, HasTimestamps;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * @var string
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $table = 'vg_users';
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * @var string
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $primaryKey = 'id';
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @var string
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $dateFormat = 'Y-m-d H:i:s';
+
+    const USERNAME = 'username';
+    const EMAIL = 'email';
+    const PASSWORD = 'password';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 }
