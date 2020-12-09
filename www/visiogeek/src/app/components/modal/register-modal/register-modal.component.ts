@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {NavbarComponent} from "../../navbar/navbar.component";
+import {fetchApi} from "../../../utils/Fetch";
 
 @Component({
   selector: 'vg-register-modal',
@@ -25,8 +26,8 @@ export class RegisterModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(formValue: {}) : void {
-    console.log(formValue)
+  async onSubmit(formValue: {}) : Promise<void> {
+    let response = await fetchApi('add', 'POST', true, {...formValue})
   }
 
   handleCloseModal() :void {
