@@ -1,0 +1,13 @@
+<vg-register-modal *ngIf="modal['register']" (closeModal)="handleClick('register', false)"></vg-register-modal>
+
+<header>
+  <h1>Visio Geek</h1>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Connection</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="handleClick('register', true)">Inscription</a>
+    </li>
+  </ul>
+</header>
