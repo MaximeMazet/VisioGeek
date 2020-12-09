@@ -43,7 +43,7 @@ services:
       context: 
         ./docker/dev/angular
     volumes: 
-      - ./www/:/var/www/html
+      - ./www/visiogeek:/var/www/html
     container_name: 'visiogeek-angular'
     ports: 
       - 80:4201
