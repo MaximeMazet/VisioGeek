@@ -1,4 +1,5 @@
 .modal-background {
+  z-index: 9999;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -18,6 +19,10 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      width: 85%;
+      .message-error {
+        color: red;
+      }
     }
     .fa-times-circle{
       position: absolute;

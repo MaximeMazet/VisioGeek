@@ -1,3 +1,4 @@
+import {environment} from "../../environments/environment";
 
 
 async function fetchApi(path: string, method: string, header: boolean = true, body?: {}, body_stringify: boolean = true, jsonify: boolean = true, responseType: string = 'json'){
@@ -17,7 +18,7 @@ async function fetchApi(path: string, method: string, header: boolean = true, bo
   }
 
 
-  let response = await fetch('http://localhost:8888/api/' + path, opts)
+  let response = await fetch(`${environment.api_url}${path}`, opts)
 
 
   if (response.ok){

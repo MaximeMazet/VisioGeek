@@ -1,4 +1,4 @@
-<vg-register-modal *ngIf="modal['register']" (closeModal)="handleClick('register', false)"></vg-register-modal>
+<vg-register-modal *ngIf="modal['register']" (closeModal)="handleClick('register', false, $event)"></vg-register-modal>
 
 <header>
   <h1>Visio Geek</h1>
@@ -11,3 +11,7 @@
     </li>
   </ul>
 </header>
+
+<div class="flash-message-success container" *ngIf="flash_message_display">
+  <p>sdqsd</p>
+</div>
