@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  handleClick(type: string, state: boolean, $event?): void {
+  handleClick(type: string, state: boolean, $event?: any): void {
     this.modal[type] = state
 
     if ($event !== undefined) {

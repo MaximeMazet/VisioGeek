@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterModalComponent } from './components/modal/register-modal/register-modal.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {LoginModalComponent} from "./components/modal/login-modal/login-modal.component";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NavbarComponent,
     RegisterModalComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
