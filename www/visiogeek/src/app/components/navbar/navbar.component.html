@@ -1,10 +1,11 @@
 <vg-register-modal *ngIf="modal['register']" (closeModal)="handleClick('register', false, $event)"></vg-register-modal>
+<vg-login-modal *ngIf="modal['login']" (closeModal)="handleClick('login', false, $event)"></vg-login-modal>
 
 <header>
   <h1>Visio Geek</h1>
   <ul class="nav justify-content-end">
     <li class="nav-item">
-      <a class="nav-link" href="#">Connection</a>
+      <a class="nav-link" href="#" (click)="handleClick('login', true)">Connection</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#" (click)="handleClick('register', true)">Inscription</a>
@@ -12,6 +13,6 @@
   </ul>
 </header>
 
-<div class="flash-message-success container" *ngIf="flash_message_display">
-  <p>sdqsd</p>
+<div class="flash-message flash-message-success container" *ngIf="flash_message_display">
+  <p>{{flash_message}}</p>
 </div>
