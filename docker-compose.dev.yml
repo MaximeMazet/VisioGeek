@@ -47,3 +47,12 @@ services:
     container_name: 'visiogeek-angular'
     ports: 
       - 80:4201
+  node:
+    build:
+      context: 
+        ./docker/dev/node
+    volumes: 
+      - ./www/visiogeek-node:/var/www/html
+    container_name: 'visiogeek-node'
+    ports: 
+      - 5000:5000
